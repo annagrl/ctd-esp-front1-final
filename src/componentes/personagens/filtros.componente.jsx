@@ -1,4 +1,21 @@
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import {
+  fetchCharacters,
+  searchSelector,
+  setSearch
+} from '../../state/characters';
 import "./filtros.css";
+
+
+const Filtros = () => {
+  const dispatch = useDispatch();
+  const search = useSelector(searchSelector);
+
+  const handleChange = (e) => {
+    dispatch(setSearch(e.target.value));
+    dispatch(fetchCharacters());
+  };
 
 const Filtros = () => {
   return (

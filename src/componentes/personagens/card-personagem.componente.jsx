@@ -1,5 +1,9 @@
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { toggleFavorite, favoritesSelector, ICharacter } from '../../state/characters';
 import BotaoFavorito from "../botoes/botao-favorito.componente";
 import "./card-personagem.css";
+
 
 /**
  * Card para cada personagem dentro da grade de personagem.
@@ -13,12 +17,13 @@ const CardPersonagem = () => {
   return (
     <div className="card-personagem">
       <img
-        src="https://rickandmortyapi.com/api/character/avatar/1.jpeg"
-        alt="Rick Sanchez"
+        src={characterData.image}
+        alt={characterData.name}
       />
       <div className="card-personagem-body">
-        <span>Rick Sanchez</span>
-        <BotaoFavorito isFavorito={false} />
+        <span>{characterData.name}</span>
+        <BotaoFavorito isFavorito={isFavorito}
+          onClick={() => dispatch(toggleFavorite(characterData.id))}/>
       </div>
     </div>
   );

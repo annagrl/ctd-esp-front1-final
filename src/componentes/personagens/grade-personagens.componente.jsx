@@ -1,6 +1,7 @@
 import "./grade-personagem.css";
 import CardPersonagem from "./card-personagem.componente";
 
+
 /**
  * Grade de personagens para a página inicial
  *
@@ -12,9 +13,9 @@ import CardPersonagem from "./card-personagem.componente";
 const GradePersonagem = () => {
   return (
     <div className="grade-personagens">
-      <CardPersonagem />
-      <CardPersonagem />
-      <CardPersonagem />
+      {characters && characters.map((char) => (
+        <CardPersonagem key={char.id} characterData={char} />
+      ))}
     </div>
   );
 };

@@ -1,5 +1,7 @@
 import "./paginacao.css";
 
+
+
 /**
  * Componente que contém os botões para paginar
  *
